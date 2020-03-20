@@ -31,7 +31,7 @@ class RampUsersLoadSimulationForFixedTime extends Simulation {
         .exec(getSpecificStudent())
         .pause(1)
     }
-  /*running test for a fixed time */
+  /*running test for a fixed amount of otime */
   setUp(
     scen.inject(
       nothingFor(5 seconds),
