@@ -1,11 +1,11 @@
-package udemytraining
+package examples
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ChainBuilder
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class BasicLoadSimulation extends Simulation {
+class RampUsersLoadSimulation extends Simulation {
   val httpConfig = http.baseUrl("http://localhost:8000")
     .header("Accept", "application/json")
 
@@ -29,9 +29,8 @@ class BasicLoadSimulation extends Simulation {
     .exec(getSpecificStudent())
     .pause(1)
 
+  /*running test for a fixed number of users */
   setUp(scen.inject(nothingFor(5 seconds),
-    atOnceUsers(5),
-    rampUsers(10) during (10 seconds)))
-    .protocols(httpConfig.inferHtmlResources())
+    constantUsersPerSec(10) during (30 seconds))
+    .protocols(httpConfig.inferHtmlResources()))
 }
-

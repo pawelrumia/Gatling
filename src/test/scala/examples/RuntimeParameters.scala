@@ -1,4 +1,4 @@
-package udemytraining
+package examples
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ChainBuilder
@@ -23,8 +23,8 @@ class RuntimeParameters extends Simulation {
 
   setUp(scen.inject(
     nothingFor(5 seconds),
-    atOnceUsers(5),
-    rampUsers(1) during (1 second)))
+    atOnceUsers(1000),
+    rampUsers(30) during (1 second)))
     .protocols(httpConfig.inferHtmlResources())
     .maxDuration(30 seconds)
 }

@@ -1,4 +1,4 @@
-package udemytraining
+package examples
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ChainBuilder
@@ -31,7 +31,7 @@ class RampUsersLoadSimulationForFixedTime extends Simulation {
         .exec(getSpecificStudent())
         .pause(1)
     }
-  /*running test for a fixed time */
+  /*running test for a fixed amount of otime */
   setUp(
     scen.inject(
       nothingFor(5 seconds),

@@ -1,9 +1,9 @@
-package udemytraining
+package examples
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-class UdemyFirstScript extends Simulation {
+class BasicScript extends Simulation {
 
   // 1) http config
   val httpConfig = http.baseUrl("http://localhost:8000")
