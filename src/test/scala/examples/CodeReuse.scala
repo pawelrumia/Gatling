@@ -1,4 +1,4 @@
-package udemytraining
+package examples
 
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ChainBuilder
@@ -40,5 +40,7 @@ class CodeReuse extends Simulation {
     }
   }
 
-  setUp(scenarioRewritten.inject(atOnceUsers(5)).protocols(httpConfig))
+  setUp(scenarioRewritten
+    .inject(atOnceUsers(5))
+    .protocols(httpConfig))
 }

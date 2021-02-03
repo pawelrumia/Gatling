@@ -9,21 +9,9 @@ class BasicSimulation extends Simulation {
 
   val httpConf: HttpProtocolBuilder = http.baseUrl("http://localhost:8000")
 
-  val scn2: ScenarioBuilder = scenario("Moj pierwszy test")
-    .exec(http("GET")
-      .get("/students")
-      .check(status.is(200)))
-    .pause(2)
-    .exec(http("GET with id 4")
-      .get("/students/4")
-      .check(status.is(200)))
-    .exec(http("GET with id z pliku")
-      .get("/students/"))
-    .feed(csv("ids.csv").queue)
-    .exec(http("Search z pliku")
-      .get("/students/${idjeden}")
-      .check(status.is(200)))
-
+  val scn2: ScenarioBuilder =
+    scenario("Checking")
+      .exec(Search2.search2)
 
   //    val users: ScenarioBuilder = scenario("Users")
   setUp(scn2.inject(atOnceUsers(2))).protocols(httpConf)

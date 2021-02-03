@@ -1,5 +1,18 @@
 {
-  "id": ${id},
-  "name": "${name}",
-  "course": "${course}"
+"id": ${id},
+"name": "${name}",
+"course": "${course}",
+"adres": {
+"city": "${city}",
+"street": "${street}",
+"number": ${number}
+},
+"wyksztalcenie": {
+"school": "${school}",
+"specialization": "${specialization}",
+"graduationYear": ${graduationYear}
 }
+}
+
+
+
